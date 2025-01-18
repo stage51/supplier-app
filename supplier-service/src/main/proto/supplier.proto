@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package com.example.supplier_service.service.grpc;
+
+message Supplier {
+  int64 id = 1;
+  string name = 2;
+  string contactPerson = 3;
+  string phone = 4;
+}
+
+message SupplierListResponse {
+  repeated Supplier suppliers = 1;
+}
+
+message GetPageSuppliersRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message GetSupplierRequest {
+  int64 id = 1;
+}
+
+message CreateSupplierRequest {
+  string name = 1;
+  string contactPerson = 2;
+  string phone = 3;
+}
+
+message UpdateSupplierRequest {
+  int64 id = 1;
+  string name = 2;
+  string contactPerson = 3;
+  string phone = 4;
+}
+
+message Empty {}
+
+service SupplierService {
+  rpc CreateSupplier (CreateSupplierRequest) returns (Supplier);
+
+  rpc GetPageSupplier (GetPageSuppliersRequest) returns (SupplierListResponse);
+
+  rpc GetSupplier (GetSupplierRequest) returns (Supplier);
+
+  rpc UpdateSupplier (UpdateSupplierRequest) returns (Supplier);
+
+  rpc DeleteSupplier (GetSupplierRequest) returns (Empty);
+}

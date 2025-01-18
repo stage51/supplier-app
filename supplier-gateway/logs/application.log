@@ -1,0 +1,9 @@
+2025-01-18 08:51:37 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.supplier_gateway.SupplierGatewayApplicationTests]: SupplierGatewayApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-18 08:51:37 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.supplier_gateway.SupplierGatewayApplication for test class com.example.supplier_gateway.SupplierGatewayApplicationTests
+2025-01-18 08:51:37 [main] INFO  c.e.s.SupplierGatewayApplicationTests - Starting SupplierGatewayApplicationTests using Java 17.0.3.1 with PID 90725 (started by merkulovandrej in /Users/merkulovandrej/Documents/supplier-app/supplier-gateway)
+2025-01-18 08:51:37 [main] INFO  c.e.s.SupplierGatewayApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-01-18 08:51:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-18 08:51:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-01-18 08:51:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-01-18 08:51:39 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2025-01-18 08:51:39 [main] INFO  c.e.s.SupplierGatewayApplicationTests - Started SupplierGatewayApplicationTests in 1.754 seconds (process running for 2.366)
