@@ -53,7 +53,6 @@ public class GatewayController {
     @CacheEvict(value = REDIS_KEY, allEntries = true)
     public ResponseEntity<?> create(@RequestBody SupplierRequest data) {
         log.info("POST request for creating (supplier: {})", data);
-        messageProducer.sendMessage(Message.builder().operation(Operation.CREATE).data(data).build());
         SupplierOuterClass.CreateSupplierRequest request = supplierMapper.toCreateRequest(data);
         SupplierResponse supplierResponse = supplierMapper.toResponse(supplierServiceStub.createSupplier(request));
         return ResponseEntity.status(HttpStatus.CREATED).body(supplierResponse);
@@ -63,7 +62,6 @@ public class GatewayController {
     @CacheEvict(value = REDIS_KEY, allEntries = true)
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SupplierRequest data) {
         log.info("PATCH request for updating (id: {}, supplier: {})", id, data);
-        messageProducer.sendMessage(Message.builder().operation(Operation.UPDATE).data(data).build());
         SupplierOuterClass.UpdateSupplierRequest request = supplierMapper.toUpdateRequest(data, id);
         SupplierResponse supplierResponse = supplierMapper.toResponse(supplierServiceStub.updateSupplier(request));
         return ResponseEntity.status(HttpStatus.OK).body(supplierResponse);
@@ -74,8 +72,6 @@ public class GatewayController {
     public ResponseEntity<?> delete(@PathVariable Long id) {
         log.info("DELETE request for deleting supplier with (id: {})", id);
         messageProducer.sendMessage(Message.builder().operation(Operation.DELETE).data(id).build());
-        SupplierOuterClass.GetSupplierRequest request = supplierMapper.toGetRequest(id);
-        supplierServiceStub.deleteSupplier(request);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted.");
     }
 }

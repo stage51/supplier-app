@@ -1,4 +1,4 @@
-package com.example.supplier_service.rabbit.model;
+package com.example.supplier_service.broker.model;
 
 import lombok.Data;
 
